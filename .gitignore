@@ -1,6 +1,10 @@
 HELP.md
 target/
+<<<<<<< HEAD
 !.mvn/wrapper/maven-wrapper.jar
+=======
+!project_code/.mvn/wrapper/maven-wrapper.jar
+>>>>>>> origin/master
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -14,7 +18,11 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+<<<<<<< HEAD
 .idea
+=======
+project_code/.idea
+>>>>>>> origin/master
 *.iws
 *.iml
 *.ipr
