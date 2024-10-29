@@ -24,7 +24,7 @@ public class SiteController {
 
 @PostMapping("/addSite")
     public void addSite(@RequestBody Site site){
-    siteRepo.save(site);
+    // method
 }
 
 }
