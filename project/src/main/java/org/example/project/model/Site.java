@@ -1,30 +1,22 @@
 package org.example.project.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
+@Data
 @Entity
-@Table(name = "site", schema = "trpz")
 public class Site {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
-
-    @Column(name = "url")
-    private  String url;
-    @Column(name = "title")
-    private  String title;
-    @Column(name = "insert_date")
-    private  Date insertDate;
-    @Column(name = "last_scan_date")
-    private  String lastScanDate;
-    @Column(name = "document_count")
-    private  int documentCount;
-    @Column(name = "picture_count")
-    private  int pictureCount;
+    private int id;
+    private String url;
+    private String title;
+    private Date insertDate;
+    private String lastScanDate;
+    private int documentCount;
+    private int pictureCount;
 
     public int getId() {
         return id;

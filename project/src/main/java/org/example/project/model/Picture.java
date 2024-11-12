@@ -7,20 +7,13 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "picture", schema = "trpz")
 public class Picture {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
-    @Column(name = "url", length = 1000)
     private  String url;
-    @Column(name = "site_id")
     private  int siteId;
-    @Column(name = "parent_url")
     private  String parentUrl;
-    @Column(name = "insert_date")
     private  Date insertDate;
 
     public int getId() {
