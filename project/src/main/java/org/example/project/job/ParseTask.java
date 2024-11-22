@@ -1,5 +1,6 @@
 package org.example.project.job;
 
+import org.example.project.ProjectApplication;
 import org.example.project.service.DocumentService;
 import org.example.project.service.PictureService;
 import org.jsoup.HttpStatusException;
@@ -17,7 +18,7 @@ import java.net.SocketTimeoutException;
 import java.util.List;
 
 @Component
-public class ParseTask {
+public class ParseTask extends ProjectApplication {
 
     @Autowired
     PictureService pictureService;
@@ -28,7 +29,6 @@ public class ParseTask {
     public void parseSite() {
 
         List<org.example.project.model.Document> documentList = documentService.getAllDocs();
-
         for (org.example.project.model.Document document : documentList) {
                 int level = document.getLevel();
                 if (level < 5) {
@@ -45,9 +45,7 @@ public class ParseTask {
                         for (Element el : sites) {
                             String tagName = el.tagName();
                             //adding new urls logic
-
                             //saving images logic
-
                             //saving content from site
                         }
 
@@ -56,7 +54,5 @@ public class ParseTask {
                     }
                 }
         }
-
-
     }
 }
