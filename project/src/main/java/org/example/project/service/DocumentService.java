@@ -1,6 +1,7 @@
 package org.example.project.service;
 
 
+import org.example.project.job.ParseTask;
 import org.example.project.model.Document;
 import org.example.project.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DocumentService {
+public class DocumentService extends ParseTask {
 
     @Autowired
     DocumentRepository documentRepository;

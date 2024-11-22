@@ -11,5 +11,12 @@ import java.util.List;
 @RepositoryRestResource
 public interface SiteRepository extends JpaRepository<Site, Long> {
 
+    @Query(value = "SELECT * FROM trpz.get_all_sites()", nativeQuery = true)
+    List<Site> getAllSites();
 
+    @Query(value = "SELECT * FROM trpz.get_all_sites_for_admin()", nativeQuery = true)
+    List<Site> getAllSitesForAdmin();
+
+    @Query(value = "SELECT * FROM trpz.add_site(?1, ?2)", nativeQuery = true)
+    String addSite(String url, String title);
 }
