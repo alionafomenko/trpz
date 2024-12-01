@@ -37,7 +37,6 @@ public abstract class AbstractCrawler {
                     .referrer("https://google.com")
                     .get();
 
-
             pageState.setState(doc.html(), doc.title());
             caretaker.save(pageState.saveStateToMemento());
 
