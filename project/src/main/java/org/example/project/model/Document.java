@@ -7,33 +7,106 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "document", schema = "trpz")
 public class Document {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
-    @Column(name = "url", length = 1000)
     private  String url;
-    @Column(name = "site_id")
     private  Integer siteId;
-    @Column(name = "status")
     private  String status;
-    @Column(name = "parent_url",  length = 1000)
     private  String parentUrl;
-    @Column(name = "html")
-    private  String html;
-    @Column(name = "insert_date")
+    private  String title;
     private  Date insertDate;
-    @Column(name = "scan_date")
     private  Date scanDate;
-    @Column(name = "http_status")
     private  String httpStatus;
-    @Column(name = "level")
     private  int level;
-    @Column(name = "content",  length = 1000000)
     private  String content;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Integer getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(Integer siteId) {
+        this.siteId = siteId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getParentUrl() {
+        return parentUrl;
+    }
+
+    public void setParentUrl(String parentUrl) {
+        this.parentUrl = parentUrl;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getInsertDate() {
+        return insertDate;
+    }
+
+    public void setInsertDate(Date insertDate) {
+        this.insertDate = insertDate;
+    }
+
+    public Date getScanDate() {
+        return scanDate;
+    }
+
+    public void setScanDate(Date scanDate) {
+        this.scanDate = scanDate;
+    }
+
+    public String getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(String httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
