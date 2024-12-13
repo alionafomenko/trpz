@@ -11,6 +11,7 @@ public class Document {
 
     @Id
     private  int id;
+    @Column(length = 1000)
     private  String url;
     private  Integer siteId;
     private  String status;
@@ -20,7 +21,9 @@ public class Document {
     private  Date scanDate;
     private  String httpStatus;
     private  int level;
+    @Column(length = 1000000)
     private  String content;
+    private int nodeId;
 
     public int getId() {
         return id;
@@ -108,5 +111,13 @@ public class Document {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(int nodeId) {
+        this.nodeId = nodeId;
     }
 }

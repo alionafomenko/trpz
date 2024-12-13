@@ -31,6 +31,13 @@ public class SiteService {
         return siteRepository.getAllSitesForAdmin();
     }
 
+    public String addSyncSite(int siteId, String url, String title, String insertDate, int docCount, int picCount) {
+        return siteRepository.addSyncSite(siteId, url, title, insertDate, docCount, picCount);
+    }
+
+    public List<Site> getSitesFromNode(String lastSyncDocDate) {
+        return siteRepository.getSitesFromNode(lastSyncDocDate);
+    }
 
 
 }
