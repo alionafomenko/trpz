@@ -2,14 +2,8 @@ package org.example.project.controller;
 
 
 
-import org.example.project.model.Admin;
-import org.example.project.model.Content;
-import org.example.project.model.Picture;
-import org.example.project.model.Site;
-import org.example.project.service.AdminService;
-import org.example.project.service.ContentService;
-import org.example.project.service.PictureService;
-import org.example.project.service.SiteService;
+import org.example.project.model.*;
+import org.example.project.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
@@ -18,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +26,7 @@ public class SiteController {
     @Autowired PictureService pictureService;
     @Autowired ContentService contentService;
     @Autowired
+    DocumentService documentService;
     AdminService adminService;
 
 
@@ -159,6 +155,43 @@ public class SiteController {
 
 
     }
+
+    @ResponseBody
+    @GetMapping("/getdocumentsfromnode/{lastsyncdocdate}")
+    public List<Document> getDocumentsFromNode(
+            @PathVariable  String lastsyncdocdate) {
+        System.out.println("response date " + lastsyncdocdate);
+        String lastSyncDocDate = lastsyncdocdate.replace("%20", " ");
+        return documentService.getDocumentsFromNode(lastSyncDocDate);
+    }
+
+    @ResponseBody
+    @GetMapping("/getsitesfromnode/{lastsyncsitedate}")
+    public List<Site> getSitesFromNode(
+            @PathVariable  String lastsyncsitedate) {
+        System.out.println("response date " + lastsyncsitedate);
+        String lastSyncSiteDate = lastsyncsitedate.replace("%20", " ");
+        return siteService.getSitesFromNode(lastSyncSiteDate);
+    }
+
+    @ResponseBody
+    @GetMapping("/getcontentfromnode/{lastsyncsitedate}")
+    public List<Document> getContentFromNode(
+            @PathVariable  String lastsyncsitedate) {
+        System.out.println("response date " + lastsyncsitedate);
+        String lastSyncContentDate = lastsyncsitedate.replace("%20", " ");
+        return documentService.getContentFromNode(lastSyncContentDate);
+    }
+
+    @ResponseBody
+    @GetMapping("/getpicsfromnode/{lastsyncsitedate}")
+    public List<Picture> getPicsFromNode(
+            @PathVariable  String lastsyncsitedate) {
+        System.out.println("response date " + lastsyncsitedate);
+        String lastSyncPicDate = lastsyncsitedate.replace("%20", " ");
+        return pictureService.getPicsFromNode(lastSyncPicDate);
+    }
+
 
 
 

@@ -11,8 +11,9 @@ public class Picture {
 
     @Id
     private  int id;
+    private int siteId;
+    @Column(name = "URL", length = 10000)
     private  String url;
-    private  int siteId;
     private  String parentUrl;
     private  Date insertDate;
 

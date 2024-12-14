@@ -25,23 +25,24 @@ public abstract class AbstractCrawler {
     public void crawl(String url, int siteId, int level, int documentId) throws Exception {
         StringBuilder content = new StringBuilder();
         String title = "";
-        int httpStatus = 0;
+        String httpStatus = "0";
 
         PageState pageState = new PageState();
         System.out.println(url);
         try {
             Document doc = Jsoup.connect(url)
                     .userAgent("AlionaCrawler")
-                    .timeout(5000)
+                    .timeout(20000)
                     .followRedirects(true)
                     .referrer("https://google.com")
                     .get();
+
 
             pageState.setState(doc.html(), doc.title());
             caretaker.save(pageState.saveStateToMemento());
 
             Elements elements = doc.getAllElements();
-            httpStatus = doc.connection().response().statusCode();
+            httpStatus = String.valueOf(doc.connection().response().statusCode());
 
             for (Element element : elements) {
                 processElement(element, siteId, level, url, content);
@@ -50,10 +51,13 @@ public abstract class AbstractCrawler {
                 }
             }
 
-        } catch (IOException e) {
-            httpStatus = handleIOException(e);
-        } finally {
             documentService.saveContent(documentId, title, content.toString(), "scanned", httpStatus);
+
+        } catch (IOException e) {
+            httpStatus = String.valueOf(handleIOException(e));
+            System.out.println("error  " + httpStatus + "  url  " + url);
+            documentService.saveContent(documentId, title, "", "error", httpStatus);
+
         }
     }
 

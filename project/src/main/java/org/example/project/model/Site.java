@@ -17,6 +17,26 @@ public class Site {
     private String lastScanDate;
     private int documentCount;
     private int pictureCount;
+    private String status;
+    private int adminId;
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public void setAdminId(int adminId) {
+        this.adminId = adminId;
+    }
+
 
     public int getId() {
         return id;
